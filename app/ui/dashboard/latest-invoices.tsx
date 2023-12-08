@@ -4,13 +4,9 @@ import Image from "next/image";
 import { lusitana } from "@/app/ui/fonts";
 import { fetchLatestInvoices } from "@/app/lib/data";
 
-type LatestInvoicesProps = {
-    latestInvoices: Awaited<ReturnType<typeof fetchLatestInvoices>>;
-};
+export default async function LatestInvoices() {
+    const latestInvoices = await fetchLatestInvoices();
 
-export default async function LatestInvoices({
-    latestInvoices,
-}: LatestInvoicesProps) {
     return (
         <div className="flex w-full flex-col md:col-span-4 lg:col-span-4">
             <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
